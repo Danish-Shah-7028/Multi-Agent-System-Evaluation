@@ -49,22 +49,14 @@ python -m pip install -r requirements.txt
 
 ## Configuration
 
-Create a `.env` file in the project root. You can use one key or up to four keys:
-
-```env
-GROQ_API_KEY_1=your_first_key
-GROQ_API_KEY_2=your_second_key
-GROQ_API_KEY_3=your_third_key
-GROQ_API_KEY_4=your_fourth_key
-
-# Keep the same model across all systems for a fair comparison
-GROQ_MODEL=groq/compound-mini
-```
-
-If you only have one key, you can still use:
+Create a `.env` file in the project root. use Groq's API key:
 
 ```env
 GROQ_API_KEY=your_single_key
+```
+
+# Keep the same model across all systems for a fair comparison
+GROQ_MODEL=groq/compound-mini
 ```
 
 ## How to Run
