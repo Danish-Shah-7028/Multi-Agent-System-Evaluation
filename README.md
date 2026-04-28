@@ -102,6 +102,3 @@ Success is counted when the similarity score reaches or exceeds `0.8`.
 
 To reproduce the study, keep the dataset, configuration, model, and success threshold unchanged, then run the experiment again with the same `.env` setup.
 
-## Next
-
-The technical report will expand this README into a formal results discussion with methodology, analysis, and interpretation of the experimental outcomes.
