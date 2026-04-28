@@ -52,7 +52,7 @@ python -m pip install -r requirements.txt
 Create a `.env` file in the project root. use Groq's API key:
 
 ```env
-GROQ_API_KEY=your_single_key
+GROQ_API_KEY=your_api_key
 ```
 
 # Keep the same model across all systems for a fair comparison
