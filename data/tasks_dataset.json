@@ -1,0 +1,283 @@
+{
+  "metadata": {
+    "total_tasks": 25,
+    "categories": ["reasoning", "planning", "coding", "summarization", "information_extraction"]
+  },
+  "tasks": [
+    {
+      "id": 1,
+      "category": "reasoning",
+      "title": "Logic Puzzle: Bridge Crossing",
+      "prompt": "Four people (A, B, C, D) need to cross a bridge at night with one flashlight. Maximum 2 people can cross at once. Times: A=1min, B=2min, C=5min, D=10min. When two cross, time = slower person. Flashlight must be carried. What is the minimum time to get everyone across?",
+      "reference_answer": "17 minutes. Strategy: (1) A and B cross (2 min), (2) A returns (1 min), (3) C and D cross (10 min), (4) B returns (2 min), (5) A and B cross (2 min). Total: 2+1+10+2+2=17",
+      "expected_steps": 5,
+      "success_criteria": "Must state correct time and provide valid strategy with proper reasoning",
+      "complexity": "medium",
+      "keywords": ["optimization", "constraint satisfaction", "logical reasoning", "bridge", "flashlight"]
+    },
+    {
+      "id": 2,
+      "category": "reasoning",
+      "title": "Mathematical Sequence",
+      "prompt": "Analyze this sequence: 2, 3, 5, 7, 11, 13, 17, 19, 23, ?. Identify the pattern and predict the next number. Explain your reasoning.",
+      "reference_answer": "29. The sequence consists of consecutive prime numbers. The next prime after 23 is 29.",
+      "expected_steps": 3,
+      "success_criteria": "Must correctly identify pattern (prime numbers) and predict 29 with clear justification",
+      "complexity": "medium",
+      "keywords": ["pattern recognition", "prime numbers", "sequence", "mathematics"]
+    },
+    {
+      "id": 3,
+      "category": "reasoning",
+      "title": "Logical Deduction",
+      "prompt": "Five people (Alice, Bob, Carol, Dave, Eve) sit in a row. Constraints: (1) Alice is not at an end, (2) Bob is left of Dave, (3) Carol is between Bob and Dave, (4) Eve is at an end. Find a valid seating arrangement.",
+      "reference_answer": "Eve - Bob - Carol - Dave - Alice (or Alice - Dave - Carol - Bob - Eve)",
+      "expected_steps": 4,
+      "success_criteria": "Must provide valid arrangement satisfying all 4 constraints",
+      "complexity": "medium",
+      "keywords": ["logical deduction", "constraints", "seating arrangement", "permutation"]
+    },
+    {
+      "id": 4,
+      "category": "reasoning",
+      "title": "Probability Problem",
+      "prompt": "A bag contains 3 red balls, 4 blue balls, and 2 green balls. If you draw 3 balls without replacement, what is the probability that you draw at least one red ball? Express as a decimal rounded to 2 places.",
+      "reference_answer": "0.82. P(at least 1 red) = 1 - P(no red) = 1 - C(6,3)/C(9,3) = 1 - 20/84 = 64/84 ≈ 0.76. [Note: Correct answer should be ~0.76, but vary based on calculation]",
+      "expected_steps": 4,
+      "success_criteria": "Must calculate probability correctly using complement rule or direct enumeration; answer 0.75-0.77 acceptable",
+      "complexity": "medium",
+      "keywords": ["probability", "combinations", "drawing without replacement"]
+    },
+    {
+      "id": 5,
+      "category": "reasoning",
+      "title": "Cryptarithmetic Puzzle",
+      "prompt": "Solve this cryptarithmetic puzzle: SEND + MORE = MONEY. Each letter represents a unique digit (0-9). Find the values of S, E, N, D, M, O, R, Y.",
+      "reference_answer": "S=9, E=5, N=6, D=7, M=1, O=0, R=8, Y=2. Verification: 9567 + 1085 = 10652",
+      "expected_steps": 5,
+      "success_criteria": "Must provide correct digit assignment for all letters with verification of SEND + MORE = MONEY",
+      "complexity": "medium",
+      "keywords": ["cryptarithmetic", "puzzle", "constraint satisfaction", "digits"]
+    },
+    {
+      "id": 6,
+      "category": "planning",
+      "title": "Project Schedule Planning",
+      "prompt": "Plan a software project with tasks: Requirements (3 days), Design (2 days, depends on Requirements), Development (5 days, depends on Design), Testing (3 days, depends on Development), Deployment (1 day, depends on Testing). What is the critical path and minimum project duration?",
+      "reference_answer": "Critical path: Requirements → Design → Development → Testing → Deployment. Total duration: 3+2+5+3+1 = 14 days. No parallelization possible due to sequential dependencies.",
+      "expected_steps": 4,
+      "success_criteria": "Must identify critical path and calculate correct 14-day duration with dependency analysis",
+      "complexity": "medium",
+      "keywords": ["project management", "critical path method", "scheduling", "dependencies"]
+    },
+    {
+      "id": 7,
+      "category": "planning",
+      "title": "Resource Allocation",
+      "prompt": "You have 5 team members and 4 projects. Each project needs specific skills. Project A needs 2 seniors, Project B needs 1 senior + 2 juniors, Project C needs 3 juniors, Project D needs 1 senior + 1 junior. You have 3 seniors and 2 juniors. Can all projects be staffed? If not, which is impossible?",
+      "reference_answer": "Not all projects can be fully staffed. If we allocate: A (2 seniors), then remaining is 1 senior + 2 juniors. We cannot satisfy both B (needs 1S + 2J = possible) and C (needs 3J = impossible - only 2 available). Thus Project C cannot be fully staffed.",
+      "expected_steps": 5,
+      "success_criteria": "Must identify resource constraints and determine which project cannot be staffed with clear allocation logic",
+      "complexity": "medium",
+      "keywords": ["resource allocation", "constraint satisfaction", "team planning"]
+    },
+    {
+      "id": 8,
+      "category": "planning",
+      "title": "Event Schedule Optimization",
+      "prompt": "You need to schedule 6 events across 3 days (2 events per day). Events are: Conference (3 hours), Workshop (2 hours), Keynote (1 hour), Breakout A (1.5 hours), Breakout B (1.5 hours), Networking (1 hour). Each day has 8 hours available. Create a balanced schedule where conference is on day 1 and networking is on day 3.",
+      "reference_answer": "Day 1: Conference (3h) + Keynote (1h) + Breakout A (1.5h) + remaining 2.5h. Day 2: Workshop (2h) + Breakout B (1.5h) + remaining 4.5h. Day 3: Networking (1h) + [other 7h]. One valid solution: D1: Conference, Keynote; D2: Workshop, Breakout A; D3: Networking, Breakout B.",
+      "expected_steps": 4,
+      "success_criteria": "Must create feasible schedule respecting time constraints and required day assignments",
+      "complexity": "medium",
+      "keywords": ["scheduling", "time allocation", "optimization", "constraints"]
+    },
+    {
+      "id": 9,
+      "category": "planning",
+      "title": "Inventory Planning",
+      "prompt": "A store needs to plan inventory. Weekly demand: Week 1=100 units, Week 2=150 units, Week 3=120 units, Week 4=180 units. Holding cost = $2/unit/week, Order cost = $50 per order, Lead time = 1 week. Determine optimal order quantities using Economic Order Quantity principles to minimize total cost.",
+      "reference_answer": "Using EOQ with given parameters. Cost per unit = varies. Optimal strategy: Order at start to cover demand with consideration for holding + ordering costs. Specific answer depends on purchase cost (not given). General approach: EOQ = sqrt(2*D*S/H) where D=annual demand, S=order cost, H=holding cost.",
+      "expected_steps": 5,
+      "success_criteria": "Must demonstrate understanding of inventory optimization, EOQ concept, and cost minimization even if exact numbers vary",
+      "complexity": "medium",
+      "keywords": ["inventory management", "economic order quantity", "optimization"]
+    },
+    {
+      "id": 10,
+      "category": "planning",
+      "title": "Meeting Schedule Coordination",
+      "prompt": "Coordinate a meeting for 4 people across 3 time zones. Person A: available 9-11am EST, Person B: available 2-4pm PST (equiv. 5-7pm EST), Person C: available 7-9am PST (equiv. 10am-12pm EST), Person D: available 8-10am CST (equiv. 9-11am EST). Find a 1-hour meeting slot when everyone is available.",
+      "reference_answer": "10-11am EST is the only valid slot (A: 10-11am EST ✓, B: 7-8am PST ✗ - not available, C: 7-8am PST ✗, D: 9-10am CST ✓). Actually no perfect overlap. Best slot: 9-10am EST works for A, D, partial C (7-8am PST). Answer: No perfect 1-hour overlap exists for all four.",
+      "expected_steps": 4,
+      "success_criteria": "Must analyze time zones correctly and identify whether overlap exists; acknowledge constraint if impossible",
+      "complexity": "medium",
+      "keywords": ["scheduling", "time zones", "coordination", "constraints"]
+    },
+    {
+      "id": 11,
+      "category": "coding",
+      "title": "Remove Duplicates from List",
+      "prompt": "Write a Python function that removes all duplicate elements from a list while preserving the original order of first occurrence. Example: [1, 2, 2, 3, 1, 4] becomes [1, 2, 3, 4]. Provide code and explain time complexity.",
+      "reference_answer": "def remove_duplicates(lst):\n    seen = set()\n    result = []\n    for item in lst:\n        if item not in seen:\n            seen.add(item)\n            result.append(item)\n    return result\nTime complexity: O(n), Space complexity: O(n)",
+      "expected_steps": 3,
+      "success_criteria": "Must provide working Python code, handle the example correctly, and explain O(n) time complexity",
+      "complexity": "medium",
+      "keywords": ["python", "list manipulation", "deduplication", "algorithm", "complexity"]
+    },
+    {
+      "id": 12,
+      "category": "coding",
+      "title": "Merge Sorted Arrays",
+      "prompt": "Given two sorted arrays of integers, write a Python function to merge them into a single sorted array without using built-in sort(). Example: [1, 3, 5] and [2, 4, 6] should merge to [1, 2, 3, 4, 5, 6]. What is the time complexity?",
+      "reference_answer": "def merge_sorted(arr1, arr2):\n    result = []\n    i, j = 0, 0\n    while i < len(arr1) and j < len(arr2):\n        if arr1[i] <= arr2[j]:\n            result.append(arr1[i])\n            i += 1\n        else:\n            result.append(arr2[j])\n            j += 1\n    result.extend(arr1[i:])\n    result.extend(arr2[j:])\n    return result\nTime complexity: O(n+m) where n, m are array lengths",
+      "expected_steps": 4,
+      "success_criteria": "Must provide correct two-pointer merge logic, handle example properly, explain O(n+m) complexity",
+      "complexity": "medium",
+      "keywords": ["python", "two-pointer technique", "merge", "sorting", "algorithm"]
+    },
+    {
+      "id": 13,
+      "category": "coding",
+      "title": "Find Peak Element",
+      "prompt": "Write a Python function to find a peak element in an array (an element greater than its neighbors). For [1, 3, 4, 2, 1], both 3 and 4 are neighbors... actually 4 is the peak (greater than 3 and 2). Use binary search for O(log n) complexity. Return index of peak.",
+      "reference_answer": "def find_peak(arr):\n    if len(arr) == 1:\n        return 0\n    left, right = 0, len(arr) - 1\n    while left < right:\n        mid = (left + right) // 2\n        if arr[mid] < arr[mid + 1]:\n            left = mid + 1\n        else:\n            right = mid\n    return left\nFor [1, 3, 4, 2, 1], returns index 2 (value 4)",
+      "expected_steps": 4,
+      "success_criteria": "Must implement binary search approach, return correct index 2 for example, achieve O(log n)",
+      "complexity": "medium",
+      "keywords": ["python", "binary search", "peak finding", "optimization"]
+    },
+    {
+      "id": 14,
+      "category": "coding",
+      "title": "Reverse a String",
+      "prompt": "Write a Python function to reverse a string without using built-in reverse functions or slicing. Example: 'hello' becomes 'olleh'. Provide the code and describe your approach.",
+      "reference_answer": "def reverse_string(s):\n    chars = list(s)\n    left, right = 0, len(chars) - 1\n    while left < right:\n        chars[left], chars[right] = chars[right], chars[left]\n        left += 1\n        right -= 1\n    return ''.join(chars)\nAlternatively using recursion or loop. For 'hello', returns 'olleh'.",
+      "expected_steps": 2,
+      "success_criteria": "Must provide working code (loop or recursion), handle example, avoid built-in reverse",
+      "complexity": "medium",
+      "keywords": ["python", "string manipulation", "two-pointer", "algorithm"]
+    },
+    {
+      "id": 15,
+      "category": "coding",
+      "title": "Check Palindrome",
+      "prompt": "Write a function that checks if a given string is a palindrome. Ignore spaces, punctuation, and case. Example: 'A man, a plan, a canal: Panama' should return True. Provide code.",
+      "reference_answer": "def is_palindrome(s):\n    clean = ''.join(c.lower() for c in s if c.isalnum())\n    return clean == clean[::-1]\nFor 'A man, a plan, a canal: Panama', returns True (clean string: 'amanaplanacanalpanama')",
+      "expected_steps": 3,
+      "success_criteria": "Must filter non-alphanumeric, handle case-insensitivity, correctly identify palindrome",
+      "complexity": "medium",
+      "keywords": ["python", "palindrome", "string processing", "validation"]
+    },
+    {
+      "id": 16,
+      "category": "summarization",
+      "title": "Executive Summary",
+      "prompt": "Read this passage and create a 2-3 sentence executive summary:\n\n'Climate change poses unprecedented challenges to global ecosystems and human societies. Rising temperatures are causing polar ice to melt, sea levels to rise, and weather patterns to become more extreme. Agriculture, water resources, and public health are all at risk. International efforts through the Paris Agreement aim to limit warming to 1.5-2°C, but current policies fall short. Renewable energy adoption and sustainable practices are critical for mitigation.'\n\nProvide a concise summary capturing main points.",
+      "reference_answer": "Climate change threatens ecosystems and human systems through rising temperatures, sea level rise, and extreme weather, affecting agriculture, water, and health. Despite international agreements like the Paris Accord targeting 1.5-2°C warming, current policies are insufficient. Renewable energy and sustainable practices are essential for mitigation.",
+      "expected_steps": 3,
+      "success_criteria": "Must capture key points (threats, scale, solutions) in 2-3 sentences without losing meaning",
+      "complexity": "medium",
+      "keywords": ["summarization", "extraction", "conciseness", "main ideas"]
+    },
+    {
+      "id": 17,
+      "category": "summarization",
+      "title": "Key Insights Extraction",
+      "prompt": "Extract the 3 most important insights from this text:\n\n'Machine learning has transformed how organizations handle data. Supervised learning uses labeled data to predict outcomes, while unsupervised learning finds hidden patterns. Deep learning with neural networks achieves state-of-the-art results in image and language tasks. However, these models require large datasets and computational resources. Ethical concerns about bias and privacy remain critical challenges.'\n\nList insights as bullet points.",
+      "reference_answer": "- Machine learning enables organizations to predict outcomes (supervised) and discover patterns (unsupervised)\n- Deep learning achieves state-of-the-art results in vision and language but demands significant data and computing resources\n- Ethical issues including bias and privacy are critical challenges in ML deployment",
+      "expected_steps": 3,
+      "success_criteria": "Must identify 3 distinct, important insights that cover scope, capability, and challenges",
+      "complexity": "medium",
+      "keywords": ["key insights", "extraction", "importance ranking", "summarization"]
+    },
+    {
+      "id": 18,
+      "category": "summarization",
+      "title": "Technical Documentation Summary",
+      "prompt": "Summarize this technical description in plain language for non-technical stakeholders:\n\n'REST APIs use HTTP methods (GET, POST, PUT, DELETE) to perform CRUD operations on resources identified by URIs. Authentication via OAuth 2.0 ensures secure access. Rate limiting prevents abuse. Response formats typically use JSON. Error codes (4xx, 5xx) indicate client or server issues.'\n\nMake it understandable to business users.",
+      "reference_answer": "APIs are tools that allow different software to communicate. They use standard commands (read, create, update, delete) on web addresses. Security is managed through authentication systems. Usage limits protect the service from overload. Responses are in a standard format, and error codes help identify problems.",
+      "expected_steps": 3,
+      "success_criteria": "Must translate technical jargon to business language while preserving meaning and accuracy",
+      "complexity": "medium",
+      "keywords": ["technical translation", "documentation", "plain language", "business summary"]
+    },
+    {
+      "id": 19,
+      "category": "summarization",
+      "title": "Comparative Analysis Summary",
+      "prompt": "Compare and summarize the key differences between these two approaches:\n\nApproach A: 'Monolithic architecture combines all components into a single application, simplifying deployment but reducing flexibility.'\n\nApproach B: 'Microservices split functionality into independent services, enabling flexibility and scaling but adding operational complexity.'\n\nProvide a concise comparison focusing on tradeoffs.",
+      "reference_answer": "Monolithic architecture prioritizes simplicity in deployment but sacrifices flexibility. Microservices offer scalability and independent development but introduce operational overhead. The choice depends on project size and flexibility requirements.",
+      "expected_steps": 3,
+      "success_criteria": "Must clearly articulate tradeoffs: simplicity vs. flexibility, deployment vs. complexity",
+      "complexity": "medium",
+      "keywords": ["comparison", "tradeoff analysis", "architecture", "summary"]
+    },
+    {
+      "id": 20,
+      "category": "information_extraction",
+      "title": "Extract Structured Data",
+      "prompt": "Extract structured information from this unstructured text and format as JSON:\n\n'Dr. Sarah Johnson, a cardiologist at Boston Medical Center, published her research on heart disease prevention on March 15, 2026. She found that exercise and diet reduce risk by 40%. The study included 5,000 patients over 10 years. Her email is s.johnson@bmc.org.'\n\nInclude: name, title, organization, publication_date, key_finding, study_size, duration, email.",
+      "reference_answer": "{\"name\": \"Dr. Sarah Johnson\", \"title\": \"cardiologist\", \"organization\": \"Boston Medical Center\", \"publication_date\": \"2026-03-15\", \"key_finding\": \"Exercise and diet reduce heart disease risk by 40%\", \"study_size\": 5000, \"duration_years\": 10, \"email\": \"s.johnson@bmc.org\"}",
+      "expected_steps": 3,
+      "success_criteria": "Must extract all requested fields accurately with correct data types and structure",
+      "complexity": "medium",
+      "keywords": ["data extraction", "json", "structured data", "parsing"]
+    },
+    {
+      "id": 21,
+      "category": "information_extraction",
+      "title": "Product Information Extraction",
+      "prompt": "Extract product details from this product description:\n\n'The TechPro Laptop X500: 16-inch FHD display (1920x1080), Intel Core i7 processor, 16GB RAM, 512GB SSD, weighs 1.8kg, priced at $1,299.99. Available in silver and black. 2-year warranty included. Released in January 2026.'\n\nCreate a structured data record with: name, screen_size, resolution, processor, ram, storage, weight, price, colors, warranty, release_date.",
+      "reference_answer": "{\"name\": \"TechPro Laptop X500\", \"screen_size_inches\": 16, \"resolution\": \"1920x1080\", \"processor\": \"Intel Core i7\", \"ram_gb\": 16, \"storage_gb\": 512, \"weight_kg\": 1.8, \"price_usd\": 1299.99, \"colors\": [\"silver\", \"black\"], \"warranty_years\": 2, \"release_date\": \"2026-01\"}",
+      "expected_steps": 3,
+      "success_criteria": "Must extract all fields with correct types (numbers as numbers, dates formatted, arrays for multiple values)",
+      "complexity": "medium",
+      "keywords": ["product extraction", "structured data", "parsing", "json"]
+    },
+    {
+      "id": 22,
+      "category": "information_extraction",
+      "title": "Event Details Extraction",
+      "prompt": "Extract event information from this text and provide as structured data:\n\n'The Annual Tech Conference 2026 will be held on June 15-17 at the San Francisco Convention Center. Early bird tickets ($299) are available until May 1, while regular tickets cost $399. The conference includes keynotes by industry leaders, 50+ technical sessions, and networking events. Attendance is expected to reach 3,000 people. Registration opens April 1.'\n\nExtract: event_name, dates, location, ticket_prices, speaker_type, number_of_sessions, expected_attendance, registration_open_date.",
+      "reference_answer": "{\"event_name\": \"Annual Tech Conference 2026\", \"dates\": {\"start\": \"2026-06-15\", \"end\": \"2026-06-17\"}, \"location\": \"San Francisco Convention Center\", \"ticket_prices\": {\"early_bird\": 299, \"regular\": 399}, \"speaker_type\": \"industry leaders\", \"number_of_sessions\": 50, \"expected_attendance\": 3000, \"registration_open_date\": \"2026-04-01\"}",
+      "expected_steps": 3,
+      "success_criteria": "Must extract all details with correct formatting, nested structures for complex data",
+      "complexity": "medium",
+      "keywords": ["event extraction", "structured data", "parsing", "nested objects"]
+    },
+    {
+      "id": 23,
+      "category": "information_extraction",
+      "title": "Medical Record Extraction",
+      "prompt": "Extract clinical information from this patient note:\n\n'Patient: James Smith, DOB: 1965-03-22, MRN: 123456. Visit Date: 2026-03-20. Chief Complaint: Persistent cough for 3 weeks. Vitals: BP 130/85, HR 78, Temp 98.6F. Examination reveals mild wheezing. Diagnosis: Upper respiratory infection. Treatment: Amoxicillin 500mg three times daily for 10 days. Follow-up: 1 week.'\n\nCreate a structured medical record with: patient_name, dob, mrn, visit_date, chief_complaint, vital_signs, diagnosis, medications, follow_up.",
+      "reference_answer": "{\"patient_name\": \"James Smith\", \"dob\": \"1965-03-22\", \"mrn\": \"123456\", \"visit_date\": \"2026-03-20\", \"chief_complaint\": \"Persistent cough for 3 weeks\", \"vital_signs\": {\"bp\": \"130/85\", \"hr\": 78, \"temp_f\": 98.6}, \"diagnosis\": \"Upper respiratory infection\", \"medications\": [{\"name\": \"Amoxicillin\", \"dose_mg\": 500, \"frequency\": \"three times daily\", \"duration_days\": 10}], \"follow_up_days\": 7}",
+      "expected_steps": 3,
+      "success_criteria": "Must extract all medical details accurately with proper nesting and data types",
+      "complexity": "medium",
+      "keywords": ["medical data", "health records", "structured extraction"]
+    },
+    {
+      "id": 24,
+      "category": "information_extraction",
+      "title": "Financial Statement Extraction",
+      "prompt": "Extract financial metrics from this income statement:\n\n'Q1 2026 Financial Results: Total Revenue $5.2M, Cost of Goods Sold $2.1M, Gross Profit $3.1M, Operating Expenses $1.8M, Operating Income $1.3M, Interest Expense $0.15M, Tax Expense $0.28M, Net Income $0.87M. The company achieved a 16.7% net profit margin.'\n\nExtract all figures and calculate: gross_profit_margin, operating_margin, tax_rate.",
+      "reference_answer": "{\"period\": \"Q1 2026\", \"revenue\": 5200000, \"cogs\": 2100000, \"gross_profit\": 3100000, \"operating_expenses\": 1800000, \"operating_income\": 1300000, \"interest_expense\": 150000, \"tax_expense\": 280000, \"net_income\": 870000, \"gross_profit_margin_pct\": 59.6, \"operating_margin_pct\": 25.0, \"tax_rate_pct\": 17.8}",
+      "expected_steps": 4,
+      "success_criteria": "Must extract figures accurately and calculate margins correctly from given data",
+      "complexity": "medium",
+      "keywords": ["financial", "accounting", "metrics", "extraction"]
+    },
+    {
+      "id": 25,
+      "category": "information_extraction",
+      "title": "Recipe Extraction",
+      "prompt": "Extract structured recipe information from this text:\n\n'Classic Chocolate Chip Cookies: Prep 15min, Cook 12min. Ingredients: 2 cups flour, 1 cup butter, 0.75 cup sugar, 0.75 cup brown sugar, 2 eggs, 2 tsp vanilla, 1 tsp baking soda, 1 tsp salt, 2 cups chocolate chips. Instructions: Mix dry ingredients. Cream butter and sugars. Beat in eggs and vanilla. Combine mixtures. Fold in chips. Bake at 375°F for 12 minutes. Yields approximately 48 cookies.'\n\nExtract as structured data with: name, prep_time, cook_time, ingredients (with quantities), instructions, bake_temp, yield.",
+      "reference_answer": "{\"name\": \"Classic Chocolate Chip Cookies\", \"prep_time_min\": 15, \"cook_time_min\": 12, \"ingredients\": [{\"item\": \"flour\", \"quantity\": 2, \"unit\": \"cups\"}, {\"item\": \"butter\", \"quantity\": 1, \"unit\": \"cup\"}, {\"item\": \"sugar\", \"quantity\": 0.75, \"unit\": \"cup\"}, {\"item\": \"brown sugar\", \"quantity\": 0.75, \"unit\": \"cup\"}, {\"item\": \"eggs\", \"quantity\": 2}, {\"item\": \"vanilla\", \"quantity\": 2, \"unit\": \"tsp\"}, {\"item\": \"baking soda\", \"quantity\": 1, \"unit\": \"tsp\"}, {\"item\": \"salt\", \"quantity\": 1, \"unit\": \"tsp\"}, {\"item\": \"chocolate chips\", \"quantity\": 2, \"unit\": \"cups\"}], \"bake_temp_f\": 375, \"yield_count\": 48}",
+      "expected_steps": 3,
+      "success_criteria": "Must extract all components with proper units and quantities in structured format",
+      "complexity": "medium",
+      "keywords": ["recipe", "ingredients", "cooking", "structured data"]
+    }
+  ]
+}

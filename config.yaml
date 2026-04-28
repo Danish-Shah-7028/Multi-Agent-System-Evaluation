@@ -1,0 +1,115 @@
+# Configuration for Multi-Agent vs Single-Agent Research Study
+# Research: An Empirical Study of Multi-Agent vs Single-Agent LLM Systems for Task Automation
+
+# Groq API Configuration
+groq:
+  api_key_env: "GROQ_API_KEY"  # Read from environment variable
+  model: "groq/compound-mini"   # Cheaper supported Groq model for stable runs
+  temperature: 0.7
+  max_tokens: 1024
+  top_p: 0.9
+  timeout: 45
+
+# Experiment Configuration
+experiment:
+  num_tasks: 25
+  success_threshold: 0.8  # Semantic similarity > 0.8 = success
+  rate_limit_delay: 1.5  # seconds between API calls
+  max_retries: 3
+  retry_backoff: 2.0  # exponential backoff multiplier
+
+# System Configurations
+systems:
+  A:
+    name: "Single-Agent"
+    description: "One LLM handles entire task end-to-end"
+    max_api_calls: 1
+    
+  B:
+    name: "Multi-Agent (Planner-Executor-Reviewer)"
+    description: "Planner breaks down, Executor performs, Reviewer validates"
+    max_api_calls: 7  # 1 planner + ~4 executor + 1 reviewer + 1 fallback
+    
+  C:
+    name: "Multi-Agent + Cross-Task Memory"
+    description: "Same as B but maintains context across all 25 tasks"
+    max_api_calls: 8  # Same as B + memory lookups/updates
+    memory_persistence: "json"  # json or sqlite
+    memory_update_frequency: "after_each_task"
+
+# Evaluation Configuration
+evaluation:
+  similarity_metric: "semantic"  # semantic or exact_match
+  error_categories:
+    - "logical_error"
+    - "incomplete_output"
+    - "hallucination"
+  
+  error_detection_keywords:
+    logical_error:
+      - "incorrect"
+      - "violates"
+      - "contradicts"
+      - "invalid"
+    incomplete_output:
+      - "unable to complete"
+      - "insufficient"
+      - "missing"
+      - "partial"
+    hallucination:
+      - "fictional"
+      - "made up"
+      - "doesn't exist"
+      - "cannot find"
+
+# Task Categories (5 categories, 5 tasks each = 25 total)
+task_categories:
+  - name: "reasoning"
+    description: "Logical puzzles and constraint satisfaction"
+    count: 5
+    
+  - name: "planning"
+    description: "Workflow design and scheduling problems"
+    count: 5
+    
+  - name: "coding"
+    description: "Small programs and debugging exercises"
+    count: 5
+    
+  - name: "summarization"
+    description: "Document analysis and key insight extraction"
+    count: 5
+    
+  - name: "information_extraction"
+    description: "Structured data extraction from unstructured text"
+    count: 5
+
+# Output Configuration
+output:
+  formats:
+    - "csv"
+    - "json"
+    - "markdown"
+    - "jupyter_notebook"
+  
+  paper_format: "markdown"  # For IIT Madras submission
+  paper_target_length: "5-8 pages"
+
+# Logging and Debugging
+logging:
+  level: "INFO"
+  log_file: "experiment.log"
+  save_all_outputs: true
+  save_intermediate_steps: true
+
+# Research Metadata
+research:
+  title: "An Empirical Study of Multi-Agent vs Single-Agent LLM Systems for Task Automation"
+  institution: "AI Research Lab (prepared for IIT Madras submission)"
+  date: "2026-04-28"
+  authors: ["Research Team"]
+  keywords:
+    - "multi-agent systems"
+    - "task automation"
+    - "LLM systems"
+    - "empirical evaluation"

@@ -1,0 +1,137 @@
+{
+  "1": {
+    "task": {
+      "id": 1,
+      "title": "Logic Puzzle: Bridge Crossing",
+      "prompt": "Four people (A, B, C, D) need to cross a bridge at night with one flashlight. Maximum 2 people can cross at once. Times: A=1min, B=2min, C=5min, D=10min. When two cross, time = slower person. Flashlig"
+    },
+    "systems": {
+      "A": {
+        "similarity": 0.716,
+        "success": false,
+        "steps": 1,
+        "tokens": 657
+      },
+      "B": {
+        "similarity": 0.788,
+        "success": false,
+        "steps": 1,
+        "tokens": 715
+      },
+      "C": {
+        "similarity": 0.813,
+        "success": true,
+        "steps": 1,
+        "tokens": 794
+      }
+    }
+  },
+  "2": {
+    "task": {
+      "id": 2,
+      "title": "Mathematical Sequence",
+      "prompt": "Analyze this sequence: 2, 3, 5, 7, 11, 13, 17, 19, 23, ?. Identify the pattern and predict the next number. Explain your reasoning."
+    },
+    "systems": {
+      "A": {
+        "similarity": 0.596,
+        "success": false,
+        "steps": 3,
+        "tokens": 375
+      },
+      "B": {
+        "similarity": 0.647,
+        "success": false,
+        "steps": 2,
+        "tokens": 482
+      },
+      "C": {
+        "similarity": 0.7,
+        "success": false,
+        "steps": 1,
+        "tokens": 606
+      }
+    }
+  },
+  "3": {
+    "task": {
+      "id": 3,
+      "title": "Logical Deduction",
+      "prompt": "Five people (Alice, Bob, Carol, Dave, Eve) sit in a row. Constraints: (1) Alice is not at an end, (2) Bob is left of Dave, (3) Carol is between Bob and Dave, (4) Eve is at an end. Find a valid seating"
+    },
+    "systems": {
+      "A": {
+        "similarity": 0.761,
+        "success": false,
+        "steps": 7,
+        "tokens": 67
+      },
+      "B": {
+        "similarity": 0.904,
+        "success": true,
+        "steps": 5,
+        "tokens": 88
+      },
+      "C": {
+        "similarity": 0.939,
+        "success": true,
+        "steps": 5,
+        "tokens": 126
+      }
+    }
+  },
+  "4": {
+    "task": {
+      "id": 4,
+      "title": "Probability Problem",
+      "prompt": "A bag contains 3 red balls, 4 blue balls, and 2 green balls. If you draw 3 balls without replacement, what is the probability that you draw at least one red ball? Express as a decimal rounded to 2 pla"
+    },
+    "systems": {
+      "A": {
+        "similarity": 0.897,
+        "success": true,
+        "steps": 6,
+        "tokens": 442
+      },
+      "B": {
+        "similarity": 0.966,
+        "success": true,
+        "steps": 6,
+        "tokens": 538
+      },
+      "C": {
+        "similarity": 1.0,
+        "success": true,
+        "steps": 5,
+        "tokens": 672
+      }
+    }
+  },
+  "5": {
+    "task": {
+      "id": 5,
+      "title": "Cryptarithmetic Puzzle",
+      "prompt": "Solve this cryptarithmetic puzzle: SEND + MORE = MONEY. Each letter represents a unique digit (0-9). Find the values of S, E, N, D, M, O, R, Y."
+    },
+    "systems": {
+      "A": {
+        "similarity": 0.748,
+        "success": false,
+        "steps": 5,
+        "tokens": 696
+      },
+      "B": {
+        "similarity": 0.806,
+        "success": true,
+        "steps": 5,
+        "tokens": 801
+      },
+      "C": {
+        "similarity": 0.854,
+        "success": true,
+        "steps": 4,
+        "tokens": 867
+      }
+    }
+  }
+}
